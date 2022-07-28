@@ -1,0 +1,40 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    nacos:
+      server-addr: 101.35.1.194:8848
+    gateway:
+      routes: #配置路由规则 id,url,path
+        - id: admins_router
+          uri: lb://API-ADMINS #负载均衡
+          predicates: #断言,就是转发规则
+            - Path=/admin/demos,/admin/tokens,/admin/admin-user,/admin/tokens/**
+          filters: #过滤工厂
+            - StripPrefix=1 #去掉请求的前缀filter 后面是数字，1就是去掉一级，2就是去掉两级
+        - id: category_router
+          uri: lb://API-CATEGORYS #负载均衡
+          predicates: #断言,就是转发规则
+            - Path=/admin/categories/**
+          filters: #过滤工厂
+            - StripPrefix=1 #去掉请求的前缀filter 后面是数字，1就是去掉一级，2就是去掉两级
+        - id: videos_router
+          uri: lb://API-VIDEOS #负载均衡
+          predicates: #断言,就是转发规则
+            - Path=/admin/videos/**
+          filters: #过滤工厂
+            - StripPrefix=1 #去掉请求的前缀filter 后面是数字，1就是去掉一级，2就是去掉两级
+        - id: users_router
+          uri: lb://API-USERS #负载均衡
+          predicates: #断言,就是转发规则
+            - Path=/admin/users/**
+          filters: #过滤工厂
+            - StripPrefix=1 #去掉请求的前缀filter 后面是数字，1就是去掉一级，2就是去掉两级
+      globalcors: #跨域处理
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"

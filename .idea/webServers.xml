@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="988d8ab9-631b-41be-aed4-ae0020e7a132" name="docker">
+        <fileTransfer rootFolder="/root" accessType="SFTP" host="101.35.1.194" port="22" sshConfigId="7c446ef7-f1d4-4b1d-ad65-86bb3eb0825a" sshConfig="root@101.35.1.194:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

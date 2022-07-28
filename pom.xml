@@ -13,8 +13,8 @@
         <module>yingxue-category</module>
         <module>yingxue-users</module>
         <module>yingxue-videos</module>
-        <module>yingxue-admin</module>
         <module>yingxue-gateway</module>
+        <module>yingxue-admins</module>
     </modules>
 
     <!--继承springboot父项目-->
