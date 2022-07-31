@@ -43,6 +43,7 @@
         <fastjson.version>1.2.74</fastjson.version>
         <spring.data.redis.version>2.3.0.RELEASE</spring.data.redis.version>
         <aliyun.sdk.oss.version>3.10.2</aliyun.sdk.oss.version>
+        <mybatis.plus.boot.starter.version>3.5.2</mybatis.plus.boot.starter.version>
     </properties>
 
     <!--维护springcloud版本  springcloud 阿里巴巴-->
@@ -72,6 +73,13 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.connector.java.version}</version>
+            </dependency>
+
+            <!--        mybatis plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot.starter.version}</version>
             </dependency>
 
             <dependency>

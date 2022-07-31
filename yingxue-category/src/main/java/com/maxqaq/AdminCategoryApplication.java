@@ -1,5 +1,6 @@
 package com.maxqaq;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create: 2022-07-28 10:34
  **/
 @SpringBootApplication
+@MapperScan("com.maxqaq.dao")
 public class AdminCategoryApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminCategoryApplication.class,args);

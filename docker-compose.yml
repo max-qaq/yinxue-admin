@@ -2,6 +2,9 @@ version: "3.9"
 
 networks:
   yingxue_network:
+volumes:
+  data:
+  redisdata:
 
 services:
   nacos:
@@ -14,3 +17,22 @@ services:
       - "MODE=standalone"
     networks:
       - yingxue_network
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    networks:
+      - yingxue_network
+    volumes:
+      - data:/var/lib/mysql
+      - ./yingxue.sql:/docker-entrypoint-initdb.d/yingxue.sql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_DATABASE=yingxue"
+
+  redis:
+    image: redis:5.0.10
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
